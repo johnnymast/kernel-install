@@ -27,3 +27,9 @@ title Linux Kernel
 linux /boot/bzImage
 initrd /boot/initrd.img
 options root=PARTUUID=d6b9539b-4af7-4c81-9251-797c965ca5a2 zswap.enabled=0 rw rootfstype=ext4 intel_pstate=disable splash
+
+you can validate the boot entry with
+
+```bash
+bootctl list
+```

@@ -119,9 +119,6 @@ if [ $? -eq 0 ]; then
     echo "Installing kernel"
     sudo make install
 
-    echo "copying arch/x86/boot/bzImage  to /boot"
-    sudo cp arch/x86/boot/bzImage /boot
-
     echo "copying arch/x86/boot/bzImage to /boot"
     sudo cp arch/x86/boot/bzImage /boot
 
