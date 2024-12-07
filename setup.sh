@@ -110,9 +110,23 @@ make menuconfig
 echo "Starting build"
 make -j$(nproc)
 
+if [ $? -eq 0 ]; then
+    echo "Build completed successfully!"
 
-echo "Installing modules"
-sudo make modules_install
+    echo "Installing modules"
+    sudo make modules_install
 
-echo "Installing kernel"
-sudo make install
+    echo "Installing kernel"
+    sudo make install
+
+    echo "copying arch/x86/boot/bzImage  to /boot"
+    sudo cp arch/x86/boot/bzImage /boot
+
+    echo "copying arch/x86/boot/bzImage to /boot"
+    sudo cp arch/x86/boot/bzImage /boot
+
+    echo "copying vmlinux to /boot"
+    sudo cp vmlinux /boot
+else
+    echo "Build failed. Please check the error messages above."
+fi
