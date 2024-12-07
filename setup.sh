@@ -124,6 +124,10 @@ if [ $? -eq 0 ]; then
 
     echo "copying vmlinux to /boot"
     sudo cp vmlinux /boot
+
+    sudo cp /etc/mkinitcpio.conf /etc/mkinitcpio-custom.conf
+    sudo mkinitcpio --generate /boot/initrd-$version.img --kernel $version
+
 else
     echo "Build failed. Please check the error messages above."
 fi
